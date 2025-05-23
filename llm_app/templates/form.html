@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Text Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Summarize Text</h1>
+    <form method="post">
+        <textarea name="prompt" rows="4" cols="80" placeholder="Paste your text here..."></textarea>
+        <br>
+        <button type="submit">Summarize</button>
+    </form>
+    <br>
+    <form method="post" action="/clear">
+        <button type="submit">Clear Chat</button>
+    </form>
+
+    <div class="chat-box">
+        {% for exchange in chat_history %} 
+            <div class="chat-prompt"><strong>You:</strong> {{ exchange.prompt }}</div>
+            <div class="chat-response"><strong>Bot:</strong> {{ exchange.response }}</div>
+            <hr>
+        {% endfor %}
+    </div>
+</body>
+</html>

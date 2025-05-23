@@ -1,0 +1,15 @@
+[project]
+name = "llm_app"
+version = "1.0.0"
+description = "Basic web app that uses an LLM to summarize documents. Saves and can clear chat history."
+dependencies = [
+    "flask",
+    "transformers==4.51.1",
+    "numpy==1.25.2",
+    "torch==2.2.2"
+]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
+
