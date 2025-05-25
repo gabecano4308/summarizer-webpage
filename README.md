@@ -63,5 +63,5 @@ To deploy this on the internet, check out Flask's documentation on deployment [h
     - Add support for paid hosted models and their API keys
     - Add support for GPU/CPU device configuration.
 - The LLM only summarizes. 
-    - Incorporate models that can answer follow-up questions to summarizations.ee 
-
+    - Incorporate models that can answer follow-up questions to summarizations.
+- Add support for file uploads in addition to simply typing/pasting in text. 
