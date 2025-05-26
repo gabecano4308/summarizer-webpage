@@ -3,12 +3,26 @@ from flask import Flask
 from . import db
 
 def create_app(test_config=None):
+    '''
+    - Creates and configures the Flask app.
+    - Loads default and optional test configuration.
+    - Ensures the instance folder exists.
+    - Registers the summarizer blueprint and initializes the database.
+
+    Args:
+        test_config (dict, optional): Configuration dictionary used during testing.
+                                       Overrides default and file-based settings.
+
+    Returns:
+        Flask: The configured Flask application.
+    '''
     app = Flask(__name__)
     
     app.config.from_mapping(
     SECRET_KEY="dev",   # will get replaced with secret in conf if not testing
     DATABASE=os.path.join(app.instance_path, "llm_sumry.sqlite"),
-    MAX_LEN=1024,       # the rest of these are params for LLM model
+    MAX_LEN=200,       # the rest of these are params for LLM model
+    MIN_LEN = 30,
     MAX_OUTPUT_LEN=200,
     NUM_BEAMS=4,
     REPETITION_PENALTY=1.2,
